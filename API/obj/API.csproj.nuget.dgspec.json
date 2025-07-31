@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\atala\\OneDrive\\Belgeler\\Projects\\.NET\\e-commerce\\api\\API.csproj": {}
+    "C:\\Users\\atala\\OneDrive\\Belgeler\\Projects\\.NET\\e-commerce\\API\\API.csproj": {}
   },
   "projects": {
-    "C:\\Users\\atala\\OneDrive\\Belgeler\\Projects\\.NET\\e-commerce\\api\\API.csproj": {
+    "C:\\Users\\atala\\OneDrive\\Belgeler\\Projects\\.NET\\e-commerce\\API\\API.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\atala\\OneDrive\\Belgeler\\Projects\\.NET\\e-commerce\\api\\API.csproj",
+        "projectUniqueName": "C:\\Users\\atala\\OneDrive\\Belgeler\\Projects\\.NET\\e-commerce\\API\\API.csproj",
         "projectName": "API",
-        "projectPath": "C:\\Users\\atala\\OneDrive\\Belgeler\\Projects\\.NET\\e-commerce\\api\\API.csproj",
+        "projectPath": "C:\\Users\\atala\\OneDrive\\Belgeler\\Projects\\.NET\\e-commerce\\API\\API.csproj",
         "packagesPath": "C:\\Users\\atala\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\atala\\OneDrive\\Belgeler\\Projects\\.NET\\e-commerce\\api\\obj\\",
+        "outputPath": "C:\\Users\\atala\\OneDrive\\Belgeler\\Projects\\.NET\\e-commerce\\API\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\atala\\AppData\\Roaming\\NuGet\\NuGet.Config"

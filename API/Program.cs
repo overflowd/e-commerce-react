@@ -1,4 +1,5 @@
 using API.Data;
+using API.Middlewares;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -10,11 +11,15 @@ builder.Services.AddDbContext<DataContext>(options =>
     options.UseMySQL(connectionString!);
 });
 
+builder.Services.AddCors();
+
 builder.Services.AddControllers();
 // Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
 builder.Services.AddOpenApi();
 
 var app = builder.Build();
+
+app.UseMiddleware<ExceptionHandling>();
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
@@ -27,6 +32,13 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
+
+app.UseStaticFiles();
+
+app.UseCors(opt =>
+{
+    opt.AllowAnyHeader().AllowAnyMethod().WithOrigins("http://localhost:3000");
+});
 
 app.UseAuthorization();
 

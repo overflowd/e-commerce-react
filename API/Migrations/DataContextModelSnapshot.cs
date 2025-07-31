@@ -18,6 +18,45 @@ namespace API.Migrations
                 .HasAnnotation("ProductVersion", "9.0.6")
                 .HasAnnotation("Relational:MaxIdentifierLength", 64);
 
+            modelBuilder.Entity("API.Entity.Cart", b =>
+                {
+                    b.Property<int>("CartId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    b.Property<string>("CustomerId")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
+                    b.HasKey("CartId");
+
+                    b.ToTable("Carts");
+                });
+
+            modelBuilder.Entity("API.Entity.CartItem", b =>
+                {
+                    b.Property<int>("CartItemId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    b.Property<int>("CartId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("ProductId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("Quantity")
+                        .HasColumnType("int");
+
+                    b.HasKey("CartItemId");
+
+                    b.HasIndex("CartId");
+
+                    b.HasIndex("ProductId");
+
+                    b.ToTable("CartItem");
+                });
+
             modelBuilder.Entity("API.Entity.Product", b =>
                 {
                     b.Property<int>("Id")
@@ -88,6 +127,30 @@ namespace API.Migrations
                             Price = 20000m,
                             Stock = 100
                         });
+                });
+
+            modelBuilder.Entity("API.Entity.CartItem", b =>
+                {
+                    b.HasOne("API.Entity.Cart", "Cart")
+                        .WithMany("CartItems")
+                        .HasForeignKey("CartId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("API.Entity.Product", "Product")
+                        .WithMany()
+                        .HasForeignKey("ProductId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Cart");
+
+                    b.Navigation("Product");
+                });
+
+            modelBuilder.Entity("API.Entity.Cart", b =>
+                {
+                    b.Navigation("CartItems");
                 });
 #pragma warning restore 612, 618
         }

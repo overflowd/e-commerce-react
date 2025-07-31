@@ -147,3 +147,4 @@ C:\Users\atala\OneDrive\Belgeler\Projects\.NET\e-commerce\api\bin\Debug\net9.0\r
 C:\Users\atala\OneDrive\Belgeler\Projects\.NET\e-commerce\api\bin\Debug\net9.0\runtimes\win-x64\native\krbcc64.dll
 C:\Users\atala\OneDrive\Belgeler\Projects\.NET\e-commerce\api\bin\Debug\net9.0\runtimes\win\lib\net8.0\System.Windows.Extensions.dll
 C:\Users\atala\OneDrive\Belgeler\Projects\.NET\e-commerce\api\obj\Debug\net9.0\API.sourcelink.json
+C:\Users\atala\OneDrive\Belgeler\Projects\.NET\e-commerce\api\bin\Debug\net9.0\API.staticwebassets.runtime.json
