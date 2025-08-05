@@ -58,7 +58,7 @@ public class CartController : ControllerBase
 
         if (result)
         {
-            return Ok();
+            return CreatedAtAction(nameof(GetCart), cartToDto(cart));
         }
 
         return BadRequest(new ProblemDetails { Title = "The product cannot be deleted from cart." });

@@ -10,12 +10,30 @@ import type { IProduct } from "../../model/IProduct";
 import { AddShoppingCart } from "@mui/icons-material";
 import SearchIcon from "@mui/icons-material/Search";
 import { Link } from "react-router";
+import { useState } from "react";
+import requests from "../../api/requests";
+import { LoadingButton } from "@mui/lab";
+import { useCartContext } from "../../context/CartContext";
 
 interface Props {
   product: IProduct;
 }
 
 export default function Product(props: Props) {
+  const [loading, setLoading] = useState(false);
+
+  const { setCart } = useCartContext();
+
+  function handleAddItem(productId: number) {
+    setLoading(true);
+
+    requests.cart
+      .addItem(productId)
+      .then((cart) => setCart(cart))
+      .catch((error) => console.error(error))
+      .finally(() => setLoading(false));
+  }
+
   return (
     <Card>
       <CardMedia
@@ -36,14 +54,16 @@ export default function Product(props: Props) {
         </Typography>
       </CardContent>
       <CardActions>
-        <Button
+        <LoadingButton
+          startIcon={<AddShoppingCart />}
           variant="outlined"
           size="small"
-          startIcon={<AddShoppingCart />}
-          color="success"
+          loadingPosition="start"
+          loading={loading}
+          onClick={() => handleAddItem(props.product.id)}
         >
           Add to cart
-        </Button>
+        </LoadingButton>
         <Button
           component={Link}
           to={`/catalog/${props.product.id}`}
